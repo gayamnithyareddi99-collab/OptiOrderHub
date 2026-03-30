@@ -1,0 +1,2827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OptiOrderHub</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+scroll-behavior:smooth;
+}
+
+/* COLORS */
+
+:root{
+--primary:#4F46E5;
+--secondary:#7C3AED;
+--accent:#EC4899;
+--text:#0F172A;
+--bg:#F8FAFC;
+}
+
+/* HERO */
+
+.hero{
+padding:160px 8%;
+background:var(--bg);
+}
+
+.hero-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.hero h1{
+font-size:44px;
+color:var(--text);
+margin-bottom:20px;
+}
+
+.hero p{
+color:#555;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:12px 24px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+}
+
+.btn-primary{
+background:var(--primary);
+color:white;
+}
+
+.btn-secondary{
+border:1px solid var(--primary);
+color:var(--primary);
+}
+
+.hero img{
+width:100%;
+}
+
+/* PLATFORM */
+
+.platform{
+padding:120px 8%;
+background:white;
+}
+
+.section-title{
+text-align:center;
+font-size:34px;
+margin-bottom:10px;
+}
+
+.section-sub{
+text-align:center;
+color:#666;
+margin-bottom:50px;
+}
+
+.platform-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.platform-card{
+background:#f9fafb;
+padding:25px;
+border-radius:10px;
+text-align:center;
+transition:.3s;
+}
+
+.platform-card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.platform-img{
+width:100%;
+height:160px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+/* PROCESS */
+
+.process{
+padding:120px 8%;
+background:#f9fafb;
+}
+
+.process-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+text-align:center;
+}
+
+.process img{
+width:100%;
+height:150px;
+object-fit:contain;
+margin-bottom:10px;
+}
+
+/* PRICING */
+
+.pricing{
+padding:120px 8%;
+background:white;
+}
+
+.pricing-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.price-card{
+border:1px solid #eee;
+padding:35px;
+border-radius:10px;
+text-align:center;
+}
+
+.price-card h3{
+margin-bottom:10px;
+}
+
+.price-card ul{
+list-style:none;
+margin:20px 0;
+}
+
+.price-card li{
+margin:8px 0;
+color:#555;
+}
+
+/* FAQ */
+
+.faq{
+padding:120px 8%;
+background:black;
+color:white;
+}
+
+.faq-container{
+max-width:800px;
+margin:auto;
+}
+
+.faq-item{
+border-bottom:1px solid #333;
+padding:18px 0;
+}
+
+.faq-question{
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.faq-answer{
+display:none;
+color:#ccc;
+margin-top:8px;
+}
+
+/* CONTACT */
+
+.contact{
+padding:120px 8%;
+background:white;
+}
+
+.contact-container{
+max-width:1000px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#111;
+color:#aaa;
+padding:20px;
+text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.nav-links{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+padding:20px;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero-container,
+.platform-grid,
+.process-grid,
+.pricing-grid,
+.contact-container{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">OptiOrderHub</div>
+
+<div class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
+<a href="#platform">Platform</a>
+<a href="#process">How It Works</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</div>
+
+</header>
+<header class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">OptiOrderHub</div>
+
+<nav id="navMenu">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#process">Process</a>
+<a href="#platform">Platform</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<div class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+</header>
+
+
+
+<style>
+
+/* NAVBAR */
+
+.navbar{
+width:100%;
+background: #151B54;
+padding:11px 8%;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+font-family:'Segoe UI',sans-serif;
+box-shadow:0 3px 15px rgba(0,0,0,0.15);
+}
+
+/* CONTAINER */
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+/* LOGO */
+
+.logo{
+font-size:22px;
+font-weight:700;
+color:#ffffff;
+}
+
+/* NAV LINKS */
+
+#navMenu{
+display:flex;
+gap:35px;
+align-items:center;
+}
+
+/* LINKS */
+
+#navMenu a{
+text-decoration:none;
+color:#32CD32;
+font-size:15px;
+font-weight:500;
+position:relative;
+}
+
+/* HOVER UNDERLINE */
+
+#navMenu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:rgb(255, 255, 255);
+transition:0.3s;
+}
+
+#navMenu a:hover::after{
+width:100%;
+}
+
+/* HAMBURGER */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:25px;
+height:3px;
+background:#32CD32;
+display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+#navMenu{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background: #151B54;
+flex-direction:column;
+padding:25px 0;
+gap:20px;
+display:none;
+}
+
+#navMenu.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("navMenu");
+
+/* OPEN CLOSE MENU */
+
+toggle.addEventListener("click",()=>{
+menu.classList.toggle("active");
+});
+
+/* CLOSE MENU WHEN LINK CLICKED */
+
+document.querySelectorAll("#navMenu a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+menu.classList.remove("active");
+
+});
+
+});
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+</script>
+<!-- HERO SECTION START -->
+
+<section class="hero-section" id="home">
+
+<div class="hero-container">
+
+<!-- LEFT -->
+
+<div class="hero-left">
+
+<h1>OptiOrderHub AI-Powered E-commerce Operations Intelligence</h1>
+
+<div class="hero-divider"></div>
+
+<p class="hero-text">
+OptiOrderHub is an AI-driven operational intelligence platform designed for 
+e-commerce businesses to optimise fulfilment performance, reduce costly product 
+returns, and improve supply chain decision-making by transforming fragmented 
+marketplace data into clear, actionable insights.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#platform" class="btn-primary">Explore Platform</a>
+<a href="#contact" class="btn-secondary">Request Demo</a>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="hero-right">
+
+<img src="optiorder.png" alt="OptiOrderHub Platform">
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* HERO */
+
+.hero-section{
+position:relative;
+padding:120px 8%;
+background:#ffffff;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+}
+
+/* SHAPES */
+
+.hero-section::before{
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:220px;
+height:220px;
+background:#32CD32;
+opacity:0.15;
+clip-path:polygon(100% 0, 0 0, 100% 100%);
+}
+
+.hero-section::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:240px;
+height:240px;
+background:#32CD32;
+opacity:0.08;
+clip-path:polygon(0 100%, 0 0, 100% 100%);
+}
+
+/* CONTAINER */
+
+.hero-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+position:relative;
+z-index:2;
+}
+
+/* HEADING */
+
+.hero-left h1{
+font-size:48px;
+color:#32CD32;
+line-height:1.2;
+}
+
+/* DIVIDER */
+
+.hero-divider{
+width:70px;
+height:3px;
+margin:15px 0 20px;
+background:#32CD32;
+}
+
+/* TEXT */
+
+.hero-text{
+color:#000000;
+font-size:17px;
+line-height:1.8;
+margin-bottom:30px;
+max-width:520px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+display:flex;
+gap:15px;
+}
+
+/* PRIMARY */
+
+.btn-primary{
+background: #151B54;
+color:#32CD32;
+padding:14px 28px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* SECONDARY */
+
+.btn-secondary{
+border:2px solid #32CD32;
+color:#151B54;
+padding:14px 28px;
+border-radius:6px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* IMAGE */
+
+.hero-right img{
+width:100%;
+border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-section{
+padding:80px 6%;
+}
+
+.hero-container{
+grid-template-columns:1fr;
+text-align:center;
+gap:40px;
+}
+
+.hero-left h1{
+font-size:28px;
+line-height:1.3;
+}
+
+.hero-divider{
+margin:15px auto 20px;
+}
+
+.hero-text{
+font-size:15px;
+line-height:1.7;
+margin:0 auto 25px;
+max-width:90%;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.btn-primary,
+.btn-secondary{
+width:100%;
+max-width:280px;
+text-align:center;
+padding:14px;
+}
+
+.hero-right img{
+margin-top:10px;
+border-radius:10px;
+}
+
+.hero-section::before,
+.hero-section::after{
+opacity:0.08;
+}
+
+}
+
+</style>
+
+<!-- HERO SECTION END -->
+<!-- ABOUT SECTION START -->
+
+<section class="about-section" id="about">  
+
+<div class="about-container">
+
+<!-- LEFT CONTENT -->
+
+<div class="about-left">
+
+<h2>About OptiOrderHub</h2>
+
+<div class="about-divider"></div>
+
+<p>
+OptiOrderHub is an AI-powered operational intelligence platform built to help 
+e-commerce businesses optimise fulfilment performance and reduce costly product 
+returns by transforming fragmented marketplace data into actionable insights.
+</p>
+
+<p>
+The platform addresses a critical gap where sellers operate across multiple 
+platforms like Shopify, Amazon, and Etsy, but lack unified visibility into 
+returns, delivery performance, and operational inefficiencies.
+</p>
+
+<p>
+OptiOrderHub creates a structured workflow from data integration to predictive 
+analysis, risk detection, and actionable recommendations helping businesses 
+improve delivery reliability, reduce return rates, and operate more efficiently 
+without changing their existing systems.
+</p>
+
+<div class="about-features">
+
+<div class="feature">Cross-Platform Data Integration</div>
+<div class="feature">AI-Powered Operational Insights</div>
+<div class="feature">Predictive Risk Detection</div>
+<div class="feature">Actionable Optimisation Engine</div>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="about-right">
+
+<div class="founder-box">
+
+<h3 class="founder-title">Founder</h3>
+
+<div class="founder-divider"></div>
+
+<p>
+<strong>Tapu Rayhan Tarek</strong> is the founder of OptiOrderHub, driven by a 
+vision to simplify e-commerce operations and make advanced analytics accessible 
+to small and medium-sized businesses.
+</p>
+
+<p>
+He focuses on building a practical and scalable platform that transforms complex 
+operational data into clear decisions, helping businesses reduce inefficiencies, 
+improve fulfilment performance, and protect profitability.
+</p>
+
+<p>
+His approach is centred on creating real-world solutions that solve everyday 
+challenges in e-commerce operations while enabling smarter, data-driven growth.
+</p>
+
+<a href="#" class="linkedin-btn">
+LinkedIn
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.about-section{
+padding:140px 8%;
+background:#151B54;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+
+.about-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.3fr 1fr;
+gap:80px;
+align-items:center;
+}
+
+/* TITLE */
+
+.about-left h2{
+font-size:42px;
+margin-bottom:10px;
+color:#32CD32;
+}
+
+/* DIVIDER */
+
+.about-divider{
+width:80px;
+height:3px;
+margin:12px 0 25px;
+border-radius:3px;
+background:#32CD32;
+}
+
+/* TEXT */
+
+.about-left p{
+color:#ffffff;
+line-height:1.8;
+margin-bottom:20px;
+font-size:16px;
+max-width:520px;
+}
+
+/* FEATURES */
+
+.about-features{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.feature{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+color:#ffffff;
+padding:10px 14px;
+border-radius:6px;
+font-size:14px;
+font-weight:600;
+}
+
+/* FOUNDER BOX */
+
+.founder-box{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+padding:35px;
+border-radius:12px;
+backdrop-filter:blur(10px);
+box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* TITLE */
+
+.founder-title{
+margin-bottom:5px;
+color:#32CD32;
+}
+
+/* DIVIDER */
+
+.founder-divider{
+width:60px;
+height:3px;
+margin-bottom:15px;
+background:#32CD32;
+}
+
+/* TEXT */
+
+.founder-box p{
+color:#ffffff;
+line-height:1.7;
+margin-bottom:18px;
+}
+
+/* BUTTON */
+
+.linkedin-btn{
+display:inline-block;
+padding:10px 18px;
+background:#32CD32;
+color:#000;
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.about-section{
+padding:80px 6%;
+}
+
+.about-container{
+grid-template-columns:1fr;
+gap:50px;
+text-align:center;
+}
+
+.about-left h2{
+font-size:30px;
+line-height:1.3;
+}
+
+.about-divider{
+margin:14px auto 22px;
+}
+
+.about-left p{
+margin:0 auto 18px;
+font-size:15px;
+line-height:1.7;
+max-width:95%;
+}
+
+.about-features{
+grid-template-columns:1fr;
+gap:10px;
+max-width:300px;
+margin:20px auto 0;
+}
+
+.feature{
+text-align:center;
+padding:12px;
+font-size:13px;
+border-radius:8px;
+}
+
+.founder-box{
+padding:25px;
+text-align:center;
+}
+
+.founder-title{
+font-size:18px;
+}
+
+.founder-divider{
+margin:14px auto 20px;
+}
+
+.founder-box p{
+font-size:14px;
+line-height:1.6;
+}
+
+.linkedin-btn{
+margin-top:10px;
+display:inline-block;
+width:100%;
+max-width:220px;
+text-align:center;
+}
+
+.founder-box,
+.feature{
+backdrop-filter:none;
+}
+
+}
+
+</style>
+
+<!-- ABOUT SECTION END -->
+<!-- PROCESS SECTION START -->
+
+<section class="process-section" id="process">
+
+<div class="process-container">
+
+<h2 class="process-title">How OptiOrderHub Works</h2>
+
+<div class="process-divider"></div>
+
+<p class="process-sub">
+OptiOrderHub transforms fragmented e-commerce data into a structured operational intelligence workflow 
+from multi-platform data integration to AI-driven analysis, risk detection, and actionable optimisation 
+helping businesses reduce returns and improve fulfilment efficiency without changing existing systems.
+</p>
+
+<div class="process-grid">
+
+<!-- STEP 1 -->
+<div class="process-card">
+
+<img src="op1.png" class="process-img">
+
+<div class="step">01</div>
+
+<h3>Multi-Platform Data Integration</h3>
+
+<p>
+The platform securely connects with Shopify, Amazon, Etsy, and other marketplaces via APIs, 
+automatically collecting orders, returns, delivery data, and customer behaviour into a unified system. 
+This removes fragmented dashboards and manual data tracking.
+</p>
+
+</div>
+
+
+<!-- STEP 2 -->
+<div class="process-card">
+
+<img src="op2.png" class="process-img">
+
+<div class="step">02</div>
+
+<h3>AI Data Processing & Analysis</h3>
+
+<p>
+Collected data is processed through structured pipelines and machine learning models that analyse 
+fulfilment performance, delivery timelines, product behaviour, and return patterns, converting raw 
+data into meaningful operational insights.
+</p>
+
+</div>
+
+
+<!-- STEP 3 -->
+<div class="process-card">
+
+<img src="op3.png" class="process-img">
+
+<div class="step">03</div>
+
+<h3>Risk Detection & Pattern Identification</h3>
+
+<p>
+The system identifies high-risk products, underperforming vendors, and return patterns using predictive 
+models and clustering algorithms, enabling early detection of operational inefficiencies before they 
+impact profitability.
+</p>
+
+</div>
+
+
+<!-- STEP 4 -->
+<div class="process-card">
+
+<img src="op4.png" class="process-img">
+
+<div class="step">04</div>
+
+<h3>Actionable Recommendations & Optimisation</h3>
+
+<p>
+OptiOrderHub converts insights into clear actions such as switching couriers, improving packaging, 
+updating product listings, or adjusting supplier strategies helping businesses continuously optimise 
+operations and reduce return rates.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.process-section{
+position:relative;
+padding:120px 8%;
+background:white;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+overflow:hidden;
+}
+
+/* CLEAN SHAPES */
+
+.process-section::before{
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:200px;
+height:200px;
+background:#32CD32;
+clip-path:polygon(100% 0, 0 0, 100% 100%);
+}
+
+.process-section::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:220px;
+height:220px;
+background:#32CD32;
+clip-path:polygon(0 100%, 0 0, 100% 100%);
+}
+
+/* CONTAINER */
+
+.process-container{
+max-width:1200px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+/* TITLE */
+
+.process-title{
+font-size:40px;
+color:#32CD32;
+margin-bottom:10px;
+}
+
+/* DIVIDER */
+
+.process-divider{
+width:80px;
+height:3px;
+margin:10px auto 25px;
+border-radius:3px;
+background:#32CD32;
+}
+
+/* SUBTEXT */
+
+.process-sub{
+max-width:650px;
+margin:auto;
+margin-bottom:60px;
+color:#444;
+line-height:1.7;
+}
+
+/* GRID */
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+/* CARD */
+
+.process-card{
+background:white;
+padding:25px;
+border-radius:12px;
+border:1px solid #eee;
+border-top:4px solid #32CD32;
+text-align:left;
+transition:0.35s;
+}
+
+.process-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+
+.process-img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+/* STEP */
+
+.step{
+display:inline-block;
+background:#32CD32;
+color:black;
+font-size:13px;
+font-weight:700;
+padding:6px 14px;
+border-radius:4px;
+margin-bottom:12px;
+}
+
+/* TITLE */
+
+.process-card h3{
+margin-bottom:10px;
+color:#111;
+font-size:18px;
+}
+
+/* TEXT */
+
+.process-card p{
+color:#555;
+font-size:14px;
+line-height:1.6;
+}
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+.process-section{
+padding:90px 6%;
+}
+
+.process-grid{
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.process-section{
+padding:70px 6%;
+}
+
+.process-title{
+font-size:26px;
+}
+
+.process-sub{
+font-size:14px;
+margin-bottom:40px;
+}
+
+.process-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+}
+
+</style>
+
+<!-- PROCESS SECTION END -->
+<!-- PLATFORM SECTION START -->
+
+<section class="platform-section" id="platform">
+
+<div class="platform-container">
+
+<h2 class="platform-title">OptiOrderHub Platform</h2>
+
+<div class="platform-divider"></div>
+
+<p class="platform-sub">
+OptiOrderHub is an AI-powered operational intelligence platform for e-commerce businesses.
+It connects data across Shopify, Amazon, Etsy, and logistics partners to reduce returns,
+improve fulfilment efficiency, and provide real-time actionable insights without changing
+existing systems.
+</p>
+
+
+<div class="platform-grid">
+
+<!-- CARD 1 -->
+<div class="platform-card">
+
+<img src="op5.png" class="platform-img">
+
+<h3>Fulfilment Efficiency Benchmarking</h3>
+
+<p class="short-text">
+Identify operational bottlenecks instantly.
+</p>
+
+<p class="more-text">
+The platform evaluates fulfilment performance across warehouses, vendors, and couriers,
+analysing delivery times, delays, and errors to highlight inefficiencies and improve
+overall logistics performance.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 2 -->
+<div class="platform-card">
+
+<img src="op6.png" class="platform-img">
+
+<h3>Predictive Return Risk Engine</h3>
+
+<p class="short-text">
+Prevent returns before they happen.
+</p>
+
+<p class="more-text">
+Using machine learning models, OptiOrderHub predicts which products are likely to be returned
+based on customer behaviour, product attributes, and historical data enabling proactive
+decision-making.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 3 -->
+<div class="platform-card">
+
+<img src="op7.png" class="platform-img">
+
+<h3>Cross-Platform Data Integration</h3>
+
+<p class="short-text">
+All your data in one place.
+</p>
+
+<p class="more-text">
+The platform integrates data from multiple marketplaces like Shopify, Amazon, Etsy, and TikTok Shop,
+creating a unified analytics layer that eliminates fragmented dashboards and manual analysis.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 4 -->
+<div class="platform-card">
+
+<img src="op8.png" class="platform-img">
+
+<h3>Vendor & Courier Scoring</h3>
+
+<p class="short-text">
+Choose the best partners with confidence.
+</p>
+
+<p class="more-text">
+OptiOrderHub scores vendors and logistics partners based on delivery reliability,
+damage rates, and return correlations helping businesses optimise partnerships
+and reduce operational risk.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 5 -->
+<div class="platform-card">
+
+<img src="op9.png" class="platform-img">
+
+<h3>Returns Root-Cause Analysis</h3>
+
+<p class="short-text">
+Understand why products are returned.
+</p>
+
+<p class="more-text">
+Advanced clustering models identify key reasons behind returns such as sizing issues,
+product defects, shipping damage, or incorrect listings allowing targeted fixes.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+
+<!-- CARD 6 -->
+<div class="platform-card">
+
+<img src="op10.png" class="platform-img">
+
+<h3>AI Recommendation Engine</h3>
+
+<p class="short-text">
+Turn insights into actions.
+</p>
+
+<p class="more-text">
+The system converts analytics into clear actions such as switching couriers,
+improving packaging, or updating product descriptions helping businesses
+reduce costs and improve efficiency.
+</p>
+
+<button class="learn-btn">Learn More</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+.platform-section{
+padding:120px 8%;
+background:#151B54;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+color:#ffffff;
+}
+
+/* CONTAINER */
+.platform-container{
+max-width:1100px;
+margin:auto;
+}
+
+/* TITLE */
+.platform-title{
+font-size:40px;
+margin-bottom:10px;
+color:#32CD32;
+}
+
+/* DIVIDER */
+.platform-divider{
+width:80px;
+height:3px;
+margin:12px auto 25px;
+border-radius:3px;
+background:#32CD32;
+}
+
+/* SUB */
+.platform-sub{
+max-width:650px;
+margin:auto;
+margin-bottom:60px;
+color:#ffffff;
+}
+
+/* GRID */
+.platform-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+/* CARD */
+.platform-card{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.15);
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+text-align:left;
+backdrop-filter:blur(10px);
+}
+
+.platform-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* IMAGE */
+.platform-img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+/* TITLE */
+.platform-card h3{
+margin-bottom:8px;
+color:white;
+}
+
+/* TEXT */
+.short-text{
+color:#dcdcdc;
+margin-bottom:10px;
+}
+
+.more-text{
+display:none;
+font-size:14px;
+color:#f1f1f1;
+line-height:1.6;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+.learn-btn{
+background:#32CD32;
+color:black;
+border:none;
+padding:11px 20px;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.platform-section{
+padding:80px 6%;
+}
+
+.platform-title{
+font-size:28px;
+}
+
+.platform-sub{
+font-size:14px;
+margin-bottom:40px;
+}
+
+.platform-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.platform-card{
+padding:20px;
+}
+
+.platform-img{
+height:150px;
+}
+
+.learn-btn{
+width:100%;
+}
+
+.platform-card:hover{
+transform:none;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+}
+
+</style>
+
+
+<script>
+
+document.querySelectorAll(".learn-btn").forEach(btn => {
+
+btn.addEventListener("click", function(){
+
+const card = this.parentElement;
+const more = card.querySelector(".more-text");
+
+if(more.style.display === "block"){
+more.style.display = "none";
+this.innerText = "Learn More";
+}else{
+more.style.display = "block";
+this.innerText = "Show Less";
+}
+
+});
+
+});
+
+</script>
+
+<!-- PLATFORM SECTION END -->
+
+
+<!-- PRICING SECTION START -->
+
+<section class="pricing-section" id="pricing">
+
+<div class="pricing-container">
+
+<h2 class="pricing-title">OptiOrderHub Pricing</h2>
+
+<div class="title-divider"></div>
+
+<p class="pricing-sub">
+Simple SaaS pricing for e-commerce businesses. OptiOrderHub helps reduce
+returns, optimise fulfilment, and improve operational performance using AI.
+</p>
+
+<div class="pricing-grid">
+
+<!-- STARTER -->
+
+<div class="pricing-card">
+
+<h3>Starter</h3>
+
+<p class="price">£99 / month</p>
+
+<div class="card-divider"></div>
+
+<ul>
+<li><span class="tick">✓</span> Basic Fulfilment Analytics</li>
+<li><span class="tick">✓</span> SKU Performance Tracking</li>
+<li><span class="tick">✓</span> Return Monitoring Dashboard</li>
+<li><span class="tick">✓</span> Email Support</li>
+<li><span class="tick">✓</span> Shopify Integration</li>
+</ul>
+
+<button onclick="selectPlan('Starter')">Get Started</button>
+
+</div>
+
+
+<!-- PROFESSIONAL -->
+
+<div class="pricing-card pro-card">
+
+<div class="pro-badge">Most Popular</div>
+
+<h3>Professional</h3>
+
+<p class="price">£199 / month</p>
+
+<div class="card-divider"></div>
+
+<ul>
+<li><span class="tick">✓</span> Everything in Starter</li>
+<li><span class="tick">✓</span> Predictive Return Risk (AI)</li>
+<li><span class="tick">✓</span> Vendor & Courier Scoring</li>
+<li><span class="tick">✓</span> Root-Cause Return Analysis</li>
+<li><span class="tick">✓</span> Real-Time Alerts</li>
+</ul>
+
+<button onclick="selectPlan('Professional')">Choose Plan</button>
+
+</div>
+
+
+<!-- ENTERPRISE -->
+
+<div class="pricing-card">
+
+<h3>Enterprise</h3>
+
+<p class="price">£399+ / month</p>
+
+<div class="card-divider"></div>
+
+<ul>
+<li><span class="tick">✓</span> Full OptiOrderHub Platform</li>
+<li><span class="tick">✓</span> Multi-Marketplace Integration</li>
+<li><span class="tick">✓</span> Advanced AI Analytics</li>
+<li><span class="tick">✓</span> Custom Reporting & API Access</li>
+<li><span class="tick">✓</span> Dedicated Support & Onboarding</li>
+</ul>
+
+<button onclick="selectPlan('Enterprise')">Contact Sales</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.pricing-section{
+position:relative;
+padding:120px 8%;
+background:#ffffff;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+overflow:hidden;
+}
+
+/* SHAPES */
+
+.pricing-section::before{
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:200px;
+height:200px;
+background:#32CD32;
+opacity:0.08;
+clip-path:polygon(100% 0, 0 0, 100% 100%);
+}
+
+.pricing-section::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:220px;
+height:220px;
+background:#32CD32;
+opacity:0.08;
+clip-path:polygon(0 100%, 0 0, 100% 100%);
+}
+
+/* TITLE */
+
+.pricing-title{
+font-size:40px;
+color:#32CD32;
+}
+
+/* DIVIDER */
+
+.title-divider{
+width:80px;
+height:3px;
+margin:12px auto 25px;
+background:#32CD32;
+}
+
+/* SUB */
+
+.pricing-sub{
+color:#555;
+margin-bottom:60px;
+max-width:650px;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* GRID */
+
+.pricing-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+position:relative;
+z-index:2;
+}
+
+/* CARD */
+
+.pricing-card{
+background:#ffffff;
+padding:40px 30px;
+border-radius:12px;
+border:1px solid #eee;
+transition:0.3s;
+position:relative;
+}
+
+.pricing-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* POPULAR */
+
+.pro-card{
+border:2px solid #32CD32;
+transform:scale(1.05);
+}
+
+.pro-badge{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+background:#32CD32;
+color:black;
+font-size:12px;
+padding:6px 18px;
+border-radius:20px;
+}
+
+/* PRICE */
+
+.price{
+margin:15px 0;
+font-size:24px;
+font-weight:700;
+color:#000;
+}
+
+/* CARD DIVIDER */
+
+.card-divider{
+height:3px;
+width:50px;
+margin:15px auto 20px;
+background:#32CD32;
+}
+
+/* LIST */
+
+.pricing-card ul{
+list-style:none;
+padding:0;
+margin-bottom:25px;
+text-align:left;
+}
+
+.pricing-card li{
+margin:10px 0;
+color:#444;
+font-size:14px;
+}
+
+/* TICK */
+
+.tick{
+color:#32CD32;
+font-weight:bold;
+margin-right:8px;
+}
+
+/* BUTTON */
+
+.pricing-card button{
+padding:12px 24px;
+background:#32CD32;
+color:black;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.pricing-card button:hover{
+transform:translateY(-2px);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.pricing-section{
+padding:80px 6%;
+}
+
+.pricing-title{
+font-size:28px;
+}
+
+.pricing-sub{
+font-size:14px;
+margin-bottom:40px;
+}
+
+.pricing-grid{
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.pro-card{
+transform:none;
+}
+
+}
+
+</style>
+
+
+<script>
+
+function selectPlan(plan){
+alert("Selected plan: " + plan);
+document.getElementById("contact").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+</script>
+
+<!-- PRICING SECTION END -->
+<!-- FAQ SECTION START -->
+
+<section class="faq-section" id="faq">
+
+<div class="faq-container">
+
+<h2 class="faq-title">Frequently Asked Questions</h2>
+
+<div class="faq-divider"></div>
+
+<p class="faq-sub">
+Understand how OptiOrderHub helps e-commerce businesses reduce returns,
+optimise fulfilment, and improve operational decision-making using AI.
+</p>
+
+<div class="faq-list">
+
+<!-- FAQ 1 -->
+<div class="faq-item">
+<div class="faq-question">
+<span>What is OptiOrderHub?</span>
+<button class="toggle">+</button>
+</div>
+<div class="faq-answer">
+<p>
+OptiOrderHub is an AI-powered operational intelligence platform designed
+for e-commerce businesses to optimise fulfilment, reduce product returns,
+and improve supply chain performance.
+</p>
+</div>
+</div>
+
+<!-- FAQ 2 -->
+<div class="faq-item">
+<div class="faq-question">
+<span>How is OptiOrderHub different from traditional analytics tools?</span>
+<button class="toggle">+</button>
+</div>
+<div class="faq-answer">
+<p>
+Unlike basic dashboards, OptiOrderHub provides predictive insights,
+return-risk detection, and actionable recommendations instead of just
+historical data reporting.
+</p>
+</div>
+</div>
+
+<!-- FAQ 3 -->
+<div class="faq-item">
+<div class="faq-question">
+<span>How does OptiOrderHub reduce product returns?</span>
+<button class="toggle">+</button>
+</div>
+<div class="faq-answer">
+<p>
+The platform uses machine learning to identify high-risk products,
+detect return patterns, and suggest improvements such as better
+descriptions, packaging, or supplier changes.
+</p>
+</div>
+</div>
+
+<!-- FAQ 4 -->
+<div class="faq-item">
+<div class="faq-question">
+<span>Who is OptiOrderHub designed for?</span>
+<button class="toggle">+</button>
+</div>
+<div class="faq-answer">
+<p>
+OptiOrderHub is built for small and medium-sized e-commerce businesses
+selling across platforms like Shopify, Amazon, Etsy, and TikTok Shop.
+</p>
+</div>
+</div>
+
+<!-- FAQ 5 -->
+<div class="faq-item">
+<div class="faq-question">
+<span>Does OptiOrderHub require changing existing systems?</span>
+<button class="toggle">+</button>
+</div>
+<div class="faq-answer">
+<p>
+No. The platform integrates with your existing marketplaces and logistics
+systems using secure APIs without requiring infrastructure changes.
+</p>
+</div>
+</div>
+
+<!-- FAQ 6 -->
+<div class="faq-item">
+<div class="faq-question">
+<span>What benefits does OptiOrderHub provide?</span>
+<button class="toggle">+</button>
+</div>
+<div class="faq-answer">
+<p>
+OptiOrderHub helps reduce return rates, improve delivery performance,
+optimise vendor decisions, and increase overall profitability through
+data-driven insights.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* UPDATED BACKGROUND */
+.faq-section{
+padding:120px 8%;
+background:#151B54;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* CONTAINER */
+.faq-container{
+max-width:900px;
+margin:auto;
+}
+
+/* TITLE */
+.faq-title{
+text-align:center;
+color:#32CD32;
+font-size:36px;
+margin-bottom:10px;
+}
+
+/* SUB TEXT */
+.faq-sub{
+text-align:center;
+color:#ffffff;
+margin-bottom:45px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+/* DIVIDER */
+.faq-divider{
+width:80px;
+height:3px;
+margin:15px auto 30px;
+background:#32CD32;
+border-radius:3px;
+}
+
+/* LIST */
+.faq-list{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* CARD */
+.faq-item{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.12);
+border-radius:12px;
+padding:18px 22px;
+backdrop-filter:blur(6px);
+transition:0.3s;
+}
+
+/* HOVER */
+.faq-item:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* QUESTION */
+.faq-question{
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+color:#ffffff;
+font-size:16px;
+font-weight:600;
+}
+
+/* BUTTON */
+.toggle{
+background:#32CD32;
+border:none;
+color:black;
+font-size:18px;
+width:34px;
+height:34px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* ANSWER */
+.faq-answer{
+display:none;
+margin-top:14px;
+}
+
+.faq-answer p{
+color:#ffffff;
+line-height:1.7;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.faq-section{
+padding:80px 6%;
+}
+
+.faq-title{
+font-size:26px;
+line-height:1.3;
+}
+
+.faq-sub{
+font-size:14px;
+line-height:1.6;
+margin-bottom:35px;
+padding:0 5px;
+}
+
+.faq-divider{
+margin:15px auto 25px;
+width:70px;
+}
+
+.faq-list{
+gap:16px;
+}
+
+.faq-item{
+padding:16px;
+border-radius:10px;
+}
+
+.faq-question{
+font-size:15px;
+gap:10px;
+}
+
+.toggle{
+width:32px;
+height:32px;
+font-size:16px;
+flex-shrink:0;
+}
+
+.faq-answer p{
+font-size:14px;
+line-height:1.6;
+}
+
+.faq-question{
+padding:5px 0;
+}
+
+.faq-item{
+backdrop-filter:none;
+}
+
+}
+
+</style>
+
+
+<script>
+
+document.querySelectorAll(".faq-question").forEach(q=>{
+
+q.addEventListener("click",()=>{
+
+const answer = q.nextElementSibling;
+const btn = q.querySelector(".toggle");
+
+if(answer.style.display === "block"){
+answer.style.display = "none";
+btn.innerHTML = "+";
+}else{
+
+document.querySelectorAll(".faq-answer").forEach(a=>a.style.display="none");
+document.querySelectorAll(".toggle").forEach(b=>b.innerHTML="+");
+
+answer.style.display = "block";
+btn.innerHTML = "−";
+}
+
+});
+
+});
+
+</script>
+
+<!-- FAQ SECTION END -->
+<!-- CONTACT SECTION START -->
+
+<section class="contact-section" id="contact">
+
+<div class="contact-container">
+
+<!-- LEFT -->
+
+<div class="contact-left">
+
+<h2>Contact OptiOrderHub</h2>
+<div class="contact-divider"></div>
+
+<p class="contact-text">
+Get in touch to explore how OptiOrderHub can help optimise fulfilment,
+reduce product returns, and improve operational decision-making using
+AI-driven insights for your e-commerce business.
+</p>
+
+<!-- INFO BOX -->
+
+<div class="info-box">
+
+<div class="contact-item">
+<h3>Email</h3>
+<p>support@optiorderhub.com</p>
+</div>
+
+<div class="contact-item">
+<h3>Phone</h3>
+<p>+44 7442581207</p>
+</div>
+
+<div class="contact-item">
+<h3>Location</h3>
+<p>United Kingdom</p>
+</div> 
+
+</div>
+
+</div>
+
+
+<!-- FORM -->
+
+<form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+<input type="hidden" name="access_key" value="945b03b6-e866-43e6-9507-68e3ff73ae53">
+<input type="hidden" name="subject" value="New Contact - OptiOrderHub">
+<input type="hidden" name="from_name" value="OptiOrderHub Website">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<input type="tel" name="phone" placeholder="Phone Number">
+<textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+
+<p class="note">We will respond within 24 hours.</p>
+
+<p id="form-status"></p>
+
+</form>
+
+</div>
+
+</section>
+
+
+<style>
+
+/* SECTION */
+
+.contact-section{
+position:relative;
+padding:120px 8%;
+background:#ffffff;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+}
+
+/* SHAPES */
+
+.contact-section::before{
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:220px;
+height:220px;
+background:#32CD32;
+clip-path:polygon(100% 0, 0 0, 100% 100%);
+}
+
+.contact-section::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:220px;
+height:220px;
+background:#32CD32;
+clip-path:polygon(0 100%, 0 0, 100% 100%);
+}
+
+/* CONTAINER */
+
+.contact-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+position:relative;
+z-index:2;
+}
+
+/* LEFT */
+
+.contact-left h2{
+font-size:40px;
+color:#32CD32;
+}
+
+/* DIVIDER */
+
+.contact-divider{
+width:60px;
+height:3px;
+margin:12px 0 20px;
+background:#32CD32;
+}
+
+/* TEXT */
+
+.contact-text{
+color:#000000;
+line-height:1.8;
+margin-bottom:35px;
+max-width:480px;
+}
+
+/* INFO BOX */
+
+.info-box{
+background:#f6f8f6;
+border-left:4px solid #151B54;
+padding:25px;
+border-radius:10px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+/* ITEMS */
+
+.contact-item h3{
+font-size:14px;
+color:#151B54;
+}
+
+.contact-item p{
+font-size:14px;
+color:#32CD32;
+}
+
+/* FORM */
+
+.contact-form{
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+/* INPUT */
+
+.contact-form input,
+.contact-form textarea{
+padding:14px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+outline:none;
+}
+
+/* FOCUS */
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+border-color:#32CD32;
+box-shadow:0 0 0 2px rgba(50,205,50,0.2);
+}
+
+/* BUTTON */
+
+.contact-form button{
+margin-top:10px;
+background:#151B54;
+color:#32CD32;
+border:none;
+padding:14px;
+font-weight:600;
+cursor:pointer;
+border-radius:6px;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+transform:translateY(-2px);
+opacity:0.9;
+}
+
+/* NOTE */
+
+.note{
+font-size:12px;
+color:#32CD32;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-section{
+padding:70px 6%;
+text-align:center;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.contact-left h2{
+font-size:28px;
+line-height:1.3;
+}
+
+.contact-divider{
+margin:14px auto 22px;
+}
+
+.contact-text{
+margin:0 auto 25px;
+font-size:15px;
+line-height:1.7;
+max-width:95%;
+}
+
+.info-box{
+margin:0 auto;
+max-width:320px;
+text-align:left;
+padding:20px;
+gap:16px;
+border-radius:12px;
+}
+
+.contact-item h3{
+font-size:13px;
+}
+
+.contact-item p{
+font-size:14px;
+}
+
+.contact-form{
+padding:25px;
+gap:12px;
+}
+
+.contact-form input,
+.contact-form textarea{
+font-size:14px;
+padding:13px;
+}
+
+.contact-form button{
+padding:14px;
+width:100%;
+font-size:15px;
+}
+
+.note{
+font-size:12px;
+}
+
+#form-status{
+font-size:13px;
+}
+
+.contact-section::before,
+.contact-section::after{
+opacity:0.08;
+}
+
+}
+
+</style>
+
+
+<script>
+
+const form = document.querySelector(".contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async function(e) {
+e.preventDefault();
+
+const data = new FormData(form);
+
+const response = await fetch(form.action, {
+method: "POST",
+body: data
+});
+
+if (response.ok) {
+status.innerHTML = "✅ Message sent successfully!";
+status.style.color = "green";
+form.reset();
+} else {
+status.innerHTML = "❌ Something went wrong. Try again.";
+status.style.color = "red";
+}
+
+});
+
+</script>
+
+<!-- CONTACT SECTION END -->
+<!-- FOOTER START -->
+
+<style>
+
+/* 🎯 COLOR SYSTEM UPDATED */
+:root{
+--bg-main:#151B54;
+--accent:#32CD32;
+--text-main:#ffffff;
+}
+
+/* FOOTER BACKGROUND */
+.footer{
+position:relative;
+overflow:hidden;
+
+background:#151B54;
+
+color:var(--text-main);
+padding:100px 8% 40px;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* LIGHT SHAPES */
+.footer::before{
+content:"";
+position:absolute;
+top:-80px;
+right:-80px;
+width:280px;
+height:280px;
+background:rgba(255,255,255,0.05);
+border-radius:30px;
+transform:rotate(45deg);
+}
+
+.footer::after{
+content:"";
+position:absolute;
+bottom:-80px;
+left:-80px;
+width:240px;
+height:240px;
+background:rgba(255,255,255,0.04);
+border-radius:30px;
+transform:rotate(45deg);
+}
+
+/* CONTAINER */
+.footer-container{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr;
+gap:70px;
+position:relative;
+z-index:2;
+}
+
+/* HEADINGS */
+.footer h3,
+.footer h4{
+color:#32CD32;
+}
+
+/* DIVIDER */
+.footer-divider{
+width:60px;
+height:3px;
+margin:12px 0 20px;
+border-radius:3px;
+background:#32CD32;
+}
+
+/* TEXT */
+.footer-left p{
+font-size:14px;
+line-height:1.8;
+color:#ffffff;
+max-width:420px;
+}
+
+/* LINKS */
+.footer-links a{
+display:block;
+text-decoration:none;
+color:#ffffff;
+margin-bottom:10px;
+font-size:14px;
+transition:0.3s;
+}
+
+.footer-links a:hover{
+color:#32CD32;
+transform:translateX(6px);
+}
+
+/* BOTTOM */
+.footer-bottom{
+max-width:1100px;
+margin:60px auto 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-top:1px solid rgba(255,255,255,0.2);
+padding-top:20px;
+font-size:13px;
+color:#ffffff;
+}
+
+/* BUTTON */
+.top-btn{
+background:#32CD32;
+color:black;
+border:none;
+width:44px;
+height:44px;
+border-radius:50%;
+cursor:pointer;
+font-size:18px;
+transition:0.3s;
+}
+
+.top-btn:hover{
+transform:translateY(-5px) scale(1.08);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.footer{
+padding:70px 6% 25px;
+text-align:center;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+gap:40px;
+justify-items:center;
+}
+
+.footer-left,
+.footer-links{
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+}
+
+.footer h3,
+.footer h4{
+font-size:18px;
+}
+
+.footer-divider{
+margin:12px auto 18px;
+width:50px;
+}
+
+.footer-left p{
+font-size:14px;
+line-height:1.7;
+max-width:90%;
+margin:0 auto;
+}
+
+.footer-links a{
+font-size:14px;
+margin-bottom:8px;
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:12px;
+margin-top:40px;
+padding-top:15px;
+text-align:center;
+}
+
+.footer-bottom p{
+font-size:12px;
+}
+
+.top-btn{
+width:42px;
+height:42px;
+font-size:16px;
+}
+
+.footer::before,
+.footer::after{
+opacity:0.06;
+}
+
+}
+
+/* CENTER DIVIDER */
+.footer-divider{
+width:60px;
+height:3px;
+margin:12px auto 20px;
+border-radius:3px;
+background:#32CD32;
+}
+
+</style>
+
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- LEFT -->
+<div class="footer-left">
+
+<h3>OptiOrderHub</h3>
+<div class="footer-divider"></div>
+
+<p>
+OptiOrderHub is an AI-powered operational intelligence platform designed for 
+e-commerce businesses. It helps sellers optimise fulfilment, reduce product 
+returns, and improve supply chain decisions using predictive analytics and 
+real-time insights.
+</p>
+
+</div>
+
+<!-- CENTER -->
+<div class="footer-links">
+
+<h4>Platform</h4>
+<div class="footer-divider"></div>
+
+<a href="#home">Home</a>
+<a href="#platform">Platform</a>
+<a href="#process">Process</a>
+<a href="#pricing">Pricing</a>
+
+</div>
+
+<!-- RIGHT -->
+<div class="footer-links">
+
+<h4>Company</h4>
+<div class="footer-divider"></div>
+
+<a href="#about">About</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+<!-- BOTTOM -->
+<div class="footer-bottom">
+
+<p>© 2026 OptiOrderHub. All rights reserved.</p>
+
+<button class="top-btn" onclick="scrollToTop()">↑</button>
+
+</div>
+
+</footer>
+
+<script>
+function scrollToTop(){
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+</script>
+
+<!-- FOOTER END -->
+</body>
+</html>
